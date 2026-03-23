@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Productos - Comercial Daycor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/paginastyle.css">
+  </head>
+  <body>
+
+    <!-- Misma barra de navegación que en el index -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-blue sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="imagenes/logo.png" alt="Logo Comercial Daycor" height="50">
+          Comercial Daycor
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="pagina.html">Productos</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search" id="searchInput">
+            <button class="btn btn-orange" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Resultados de Búsqueda -->
+    <div id="searchResults" class="container my-5" style="display: none;">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="section-title">Resultados de Búsqueda</h2>
+          <div id="resultsContainer" class="row"></div>
+          <button class="btn btn-secondary mt-3" onclick="clearSearch()">Volver a ver todos los productos</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido principal de la página 2 -->
+    <div id="mainContent">
+      <main class="container my-5">
+        <!-- Sección 1: Lista de Categorías -->
+        <section class="row mb-5">
+          <div class="col-12">
+            <h2 class="section-title text-center">Nuestras Categorías</h2>
+            <ul class="list-group list-group-horizontal flex-wrap justify-content-center mt-4">
+              <li class="list-group-item bg-orange text-white m-1 rounded">Peluches</li>
+              <li class="list-group-item bg-dark-blue text-white m-1 rounded">Escolares</li>
+              <li class="list-group-item bg-orange text-white m-1 rounded">Oficina</li>
+              <li class="list-group-item bg-dark-blue text-white m-1 rounded">Detalles</li>
+              <li class="list-group-item bg-orange text-white m-1 rounded">Morrales</li>
+              <li class="list-group-item bg-dark-blue text-white m-1 rounded">Libros</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Sección 2: Tabla de Productos Destacados -->
+        <section class="row mb-5">
+          <div class="col-12">
+            <h2 class="section-title">Productos Destacados</h2>
+            <div class="table-responsive">
+              <table class="table table-striped table-hover">
+                <thead class="bg-dark-blue text-white">
+                  <tr>
+                    <th>Producto</th>
+                    <th>Marca</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTableBody">
+                  <tr data-product-name="cuaderno universitario norma" data-product-category="escolares">
+                    <td>Cuaderno Universitario</td>
+                    <td>Norma</td>
+                    <td>Escolares</td>
+                    <td>$12.500</td>
+                    <td><button class="btn btn-sm btn-orange" onclick="showProductDetailFromTable('Cuaderno Universitario Norma', 'escolares', '$12.500', 'Cuaderno cosido de 100 hojas, papel ecológico, tapa dura. Ideal para la universidad.', 'cuaderno.jpg')">Ver más</button></td>
+                  </tr>
+                  <tr data-product-name="set de acuarelas artesco" data-product-category="arte">
+                    <td>Set de Acuarelas</td>
+                    <td>Artesco</td>
+                    <td>Arte</td>
+                    <td>$28.900</td>
+                    <td><button class="btn btn-sm btn-orange" onclick="showProductDetailFromTable('Set de Acuarelas Artesco', 'arte', '$28.900', 'Set profesional de 24 colores de alta pigmentación, incluye pinceles de diferentes tamaños.', 'acuarelas.jpg')">Ver más</button></td>
+                  </tr>
+                  <tr data-product-name="mochila urbana totto" data-product-category="morrales">
+                    <td>Mochila Urbana</td>
+                    <td>Totto</td>
+                    <td>Morrales</td>
+                    <td>$159.900</td>
+                    <td><button class="btn btn-sm btn-orange" onclick="showProductDetailFromTable('Mochila Urbana Totto', 'morrales', '$159.900', 'Mochila con diseño ergonómico, compartimento para laptop de 15.6 pulgadas y bolsillos organizadores.', 'promo2.jpg')">Ver más</button></td>
+                  </tr>
+                  <tr data-product-name="libro el alquimista" data-product-category="libros">
+                    <td>Libro "El Alquimista"</td>
+                    <td>Planeta</td>
+                    <td>Libros</td>
+                    <td>$45.000</td>
+                    <td><button class="btn btn-sm btn-orange" onclick="showProductDetailFromTable('Libro El Alquimista', 'libros', '$45.000', 'Best-seller internacional de Paulo Coelho. Una historia inspiradora sobre seguir tus sueños.', 'libro_alquimista.jpg')">Ver más</button></td>
+                  </tr>
+                  <tr data-product-name="peluche oso 30cm" data-product-category="peluches">
+                    <td>Peluche Oso 30cm</td>
+                    <td>Pelanes</td>
+                    <td>Peluches</td>
+                    <td>$35.000</td>
+                    <td><button class="btn btn-sm btn-orange" onclick="showProductDetailFromTable('Peluche Oso 30cm', 'peluches', '$35.000', 'Peluche de felpa suave, ideal para regalar en cumpleaños o fechas especiales.', 'peluche.jpg')">Ver más</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección 3: Video Promocional y Lista de Marcas -->
+        <section class="row mb-5">
+          <div class="col-lg-6 mb-4">
+            <h2 class="section-title">Conoce nuestras Marcas</h2>
+            <p>Somos distribuidores autorizados de las mejores marcas del mercado:</p>
+            <div class="row">
+              <div class="col-6">
+                <ul>
+                  <li>NORMA</li>
+                  <li>KIUT</li>
+                  <li>JEANBOOK</li>
+                  <li>PRIMAVERA</li>
+                  <li>SCRIBE</li>
+                  <li>OFFIESCO</li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul>
+                  <li>TOTTO</li>
+                  <li>ARTESCO</li>
+                  <li>PELIKAN</li>
+                  <li>EDITORIAL PLANETA</li>
+                  <li>EDITORIAL RANDOM HOUSE</li>
+                  <li>PELANAS</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <h2 class="section-title">Video: ¿Por qué elegirnos?</h2>
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <small class="text-muted">*Video demostrativo de nuestra variedad de productos.</small>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Modal de Detalle de Producto -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-dark-blue text-white">
+            <h5 class="modal-title" id="productModalLabel">Detalle del Producto</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-5">
+                <img id="modalProductImage" src="" class="img-fluid rounded" alt="Producto">
+              </div>
+              <div class="col-md-7">
+                <h3 id="modalProductName"></h3>
+                <p class="text-muted" id="modalProductCategory"></p>
+                <h4 class="text-orange" id="modalProductPrice"></h4>
+                <p id="modalProductDescription"></p>
+                <hr>
+                <p><strong>Disponibilidad:</strong> En stock</p>
+                <p><strong>Envío:</strong> Gratis en compras mayores a $100.000</p>
+                <button class="btn btn-orange" onclick="window.location.href='https://wa.me/573106571039'">Comprar por WhatsApp</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer igual que en index -->
+    <footer class="bg-dark-blue text-white pt-5 pb-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5>Sobre el Desarrollador</h5>
+            <p>Este sitio fue desarrollado por <strong>Dayanna Patricia Coral Martinez</strong> como proyecto para la unidad de diplomado desarrollo web. Implementando buenas prácticas y diseño responsive.</p>
+            <p><i class="fas fa-envelope"></i> dayannacor@hotmail.com</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Síguenos</h5>
+            <ul class="list-unstyled">
+              <li><a href="https://wa.me/573106571039" target="_blank" class="text-white text-decoration-none"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+              <li><a href="https://facebook.com/comercialdaycor" target="_blank" class="text-white text-decoration-none"><i class="fab fa-facebook"></i> Facebook</a></li>
+              <li><a href="https://instagram.com/comercialdaycor" target="_blank" class="text-white text-decoration-none"><i class="fab fa-instagram"></i> Instagram</a></li>
+              <li><a href="https://tiktok.com/@comercialdaycor" target="_blank" class="text-white text-decoration-none"><i class="fab fa-tiktok"></i> TikTok</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5>Enlaces de Interés</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">Preguntas Frecuentes</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Políticas de Devolución</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Trabaja con Nosotros</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center pt-3 border-top border-secondary">
+          <p>&copy; 2025 Comercial Daycor. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    
+    <script>
+      // Base de datos de productos
+      const products = [
+        { name: "Kit Escolar Básico", category: "escolares", price: "$45.000", description: "Incluye cuadernos, lápices, colores, tijeras y pegante. Ideal para estudiantes de primaria.", image: "promo1.jpg" },
+        { name: "Mochilas Totto", category: "morrales", price: "$159.900", description: "Mochilas originales Totto con diseño ergonómico, múltiples compartimentos y garantía de calidad.", image: "promo2.jpg" },
+        { name: "Promoción 2x1 en Libros", category: "libros", price: "Desde $35.000", description: "Selección de libros juveniles, espirituales y bestsellers. Compra uno y llévate otro gratis.", image: "promo3.jpg" },
+        { name: "Cuaderno Universitario Norma", category: "escolares", price: "$12.500", description: "Cuaderno cosido de 100 hojas, papel ecológico, tapa dura. Ideal para la universidad.", image: "cuaderno.jpg" },
+        { name: "Set de Acuarelas Artesco", category: "arte", price: "$28.900", description: "Set profesional de 24 colores de alta pigmentación, incluye pinceles de diferentes tamaños.", image: "acuarelas.jpg" },
+        { name: "Mochila Urbana Totto", category: "morrales", price: "$159.900", description: "Mochila con diseño ergonómico, compartimento para laptop de 15.6 pulgadas y bolsillos organizadores.", image: "promo2.jpg" },
+        { name: "Libro El Alquimista", category: "libros", price: "$45.000", description: "Best-seller internacional de Paulo Coelho. Una historia inspiradora sobre seguir tus sueños.", image: "libro_alquimista.jpg" },
+        { name: "Peluche Oso 30cm", category: "peluches", price: "$35.000", description: "Peluche de felpa suave, ideal para regalar en cumpleaños o fechas especiales.", image: "peluche.jpg" }
+      ];
+
+      function searchProducts() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+        
+        if (searchTerm === '') {
+          document.getElementById('searchResults').style.display = 'none';
+          document.getElementById('mainContent').style.display = 'block';
+          return;
+        }
+        
+        const filteredProducts = products.filter(product => 
+          product.name.toLowerCase().includes(searchTerm) || 
+          product.category.toLowerCase().includes(searchTerm)
+        );
+        
+        if (filteredProducts.length > 0) {
+          displaySearchResults(filteredProducts);
+          document.getElementById('searchResults').style.display = 'block';
+          document.getElementById('mainContent').style.display = 'none';
+        } else {
+          const resultsContainer = document.getElementById('resultsContainer');
+          resultsContainer.innerHTML = `
+            <div class="col-12 text-center">
+              <div class="alert alert-info">
+                <i class="fas fa-search fa-3x mb-3"></i>
+                <h4>No se encontraron productos</h4>
+                <p>No encontramos resultados para "${searchTerm}". Prueba con: cuaderno, mochila, libro, etc.</p>
+              </div>
+            </div>
+          `;
+          document.getElementById('searchResults').style.display = 'block';
+          document.getElementById('mainContent').style.display = 'none';
+        }
+      }
+      
+      function displaySearchResults(products) {
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = '';
+        
+        products.forEach(product => {
+          const productCard = `
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <img src="imagenes/${product.image}" class="card-img-top card-img-standard" alt="${product.name}">
+                <div class="card-body">
+                  <h5 class="card-title">${product.name}</h5>
+                  <p class="card-text">${product.description.substring(0, 100)}...</p>
+                  <p class="product-price"><strong>${product.price}</strong></p>
+                  <button class="btn btn-orange" onclick="showProductDetail('${product.name}', '${product.category}', '${product.price}', '${product.description}', '${product.image}')">Ver detalles</button>
+                </div>
+              </div>
+            </div>
+          `;
+          resultsContainer.innerHTML += productCard;
+        });
+      }
+      
+      function showProductDetail(name, category, price, description, image) {
+        document.getElementById('modalProductName').textContent = name;
+        document.getElementById('modalProductCategory').textContent = `Categoría: ${category}`;
+        document.getElementById('modalProductPrice').textContent = price;
+        document.getElementById('modalProductDescription').textContent = description;
+        document.getElementById('modalProductImage').src = `imagenes/${image}`;
+        
+        const modal = new bootstrap.Modal(document.getElementById('productModal'));
+        modal.show();
+      }
+      
+      function showProductDetailFromTable(name, category, price, description, image) {
+        showProductDetail(name, category, price, description, image);
+      }
+      
+      function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('searchResults').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+      }
+      
+      document.getElementById('searchForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        searchProducts();
+      });
+    </script>
+  </body>
+</html>

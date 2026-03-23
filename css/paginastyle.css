@@ -1,0 +1,124 @@
+/* Reutilizamos las mismas variables de color */
+:root {
+    --azul-oscuro: #003366;
+    --naranja: #FF6600;
+    --blanco: #FFFFFF;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--blanco);
+}
+
+.bg-dark-blue {
+    background-color: var(--azul-oscuro) !important;
+}
+
+.btn-orange {
+    background-color: var(--naranja);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e55c00;
+    color: white;
+}
+
+.section-title {
+    color: var(--azul-oscuro);
+    border-left: 5px solid var(--naranja);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-orange {
+    color: var(--naranja);
+}
+
+/* Estándar de imágenes para tarjetas */
+.card-img-standard {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Estilos para la lista de categorías */
+.bg-orange {
+    background-color: var(--naranja) !important;
+}
+
+.list-group-item {
+    border: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.2s ease;
+}
+
+.list-group-item:hover {
+    transform: scale(1.05);
+}
+
+/* Tabla */
+.table thead {
+    background-color: var(--azul-oscuro);
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 102, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Tarjetas de productos */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.product-price {
+    color: var(--azul-oscuro);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: var(--naranja) !important;
+}
+
+/* Modal */
+.modal-header.bg-dark-blue {
+    background-color: var(--azul-oscuro) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .list-group-item {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .card-img-standard {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-img-standard {
+        height: 150px;
+    }
+}

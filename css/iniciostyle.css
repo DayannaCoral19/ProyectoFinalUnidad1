@@ -1,0 +1,154 @@
+/* Colores institucionales */
+:root {
+    --azul-oscuro: #003366;
+    --naranja: #FF6600;
+    --blanco: #FFFFFF;
+    --gris-claro: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--blanco);
+    color: #333;
+}
+
+/* Barra de Navegación */
+.bg-dark-blue {
+    background-color: var(--azul-oscuro) !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.btn-orange {
+    background-color: var(--naranja);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: #e55c00;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Títulos de sección */
+.section-title {
+    color: var(--azul-oscuro);
+    border-left: 5px solid var(--naranja);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-orange {
+    color: var(--naranja);
+}
+
+/* Estándar de imágenes para el carrusel */
+.carousel-img {
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Estándar de imágenes para tarjetas */
+.card-img-standard {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Estándar de imágenes generales */
+.img-standard {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Tarjetas de promociones */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card-title {
+    color: var(--azul-oscuro);
+    font-weight: bold;
+}
+
+.product-price {
+    color: var(--azul-oscuro);
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+/* Formulario */
+.form-control:focus {
+    border-color: var(--naranja);
+    box-shadow: 0 0 0 0.25rem rgba(255, 102, 0, 0.25);
+}
+
+/* Footer */
+footer a:hover {
+    color: var(--naranja) !important;
+    text-decoration: underline !important;
+}
+
+/* Modal */
+.modal-header.bg-dark-blue {
+    background-color: var(--azul-oscuro) !important;
+}
+
+/* Resultados de búsqueda */
+#resultsContainer {
+    margin-top: 20px;
+}
+
+/* Ajustes responsive para móviles */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-img {
+        height: 300px;
+    }
+    
+    .card-img-standard {
+        height: 180px;
+    }
+    
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-img {
+        height: 200px;
+    }
+    
+    .card-img-standard {
+        height: 150px;
+    }
+}
